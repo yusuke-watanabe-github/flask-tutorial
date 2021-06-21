@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>My Webpage</title>
+    <link rel="stylesheet" href="static/index.css">
 </head>
 
 <body>
     <h1>My Webpage</h1>
     <p>Hello world</p>
+    <p>今日の運勢は{{fortune}}です</p>
+    {%if fortune =="大吉"%}
+    <p>おめでとう</p>
+    {%elif fortune =="中吉"%}
+    <p>もう一歩</p>
+    {%else%}
+    <p>再読み込みしてね</p>
+    {%endif%}
+
+    <p>占い結果として表示されるのは以下の通りです。</p>
+    <ul>
+        {% for i in fortune_list %}
+        <li>{{i}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
 
